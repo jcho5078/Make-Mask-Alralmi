@@ -1,45 +1,59 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
 public class JsonDTO {
-	private String count;
-	private String page;
-	private String totalCount;
-	private String totalPages;
-	
-	private String addr;
-	private String lat;
-	private String lng;
-	private String name;
-	
-	public void setAddr(String addr) {
-		this.addr = addr;
+	@JsonProperty("count")
+	public int count;
+	public int getCount() {
+		return count;
 	}
 
-	public void setLat(String lat) {
-		this.lat = lat;
+	public void setCount(int count) {
+		this.count = count;
 	}
 
-	public void setLng(String lng) {
-		this.lng = lng;
+	public String getPage() {
+		return page;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getAddr() {
-		return addr;
-	}
-	
-	public String getLat(){
-		return lat;
+	public void setPage(String page) {
+		this.page = page;
 	}
 
-	public String getLng(){
-		return lng;
+	public int getTotalCount() {
+		return totalCount;
 	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public int getTotalPages() {
+		return totalPages;
+	}
+
+	public void setTotalPages(int totalPages) {
+		this.totalPages = totalPages;
+	}
+
+	public List<storeInfos> getStoreInfos() {
+		return storeInfos;
+	}
+
+	public void setStoreInfos(List<storeInfos> storeInfos) {
+		this.storeInfos = storeInfos;
+	}
+
+	@JsonProperty("page")
+	public String page;
+	@JsonProperty("totalCount")
+	public int totalCount;
+	@JsonProperty("totalPages")
+	public int totalPages;
 	
-	public String getName() {
-		return name;
-	}
+	@JsonProperty("storeInfos")
+	private List<storeInfos> storeInfos;
 }

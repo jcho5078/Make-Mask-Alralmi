@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+//@Controller
 public class MoveController {
 	
-	@RequestMapping("/map")
-	public String Mask() throws Exception{
-		return "map2";
-	}
+	//@RequestMapping("/map")
+//	public String Mask() throws Exception{
+//		return "map";
+//	}
 }

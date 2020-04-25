@@ -8,8 +8,8 @@ public class MaskApplication {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(MaskApplication.class, args);
-		RequestJson rj = new RequestJson();
-		rj.request();
+		
+		
 	}
 
 }
