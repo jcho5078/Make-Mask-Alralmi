@@ -26,15 +26,6 @@
 	
  		var json = JSON.parse('${storeInfos}');//json 데이터를 받아오면 구조상 객체로 받아들이기에 파싱해줘야 요소 접근 가능. 
  		
- 		for(var i=0; i<json.length; i++) {
- 			var jsArray = [];
- 			jsArray[0] = json[i].addr;
- 			jsArray[1] = json[i].lat;
- 			jsArray[2] = json[i].lng;
- 			jsArray[3] = json[i].name;
- 			jsArray[4] = json[i].code;
- 			jsArray[5] = json[i].type;
- 		}
       	var map, infoWindow;
       	
       	function initMap(){
