@@ -25,7 +25,9 @@ index.html 화면에서 해당 초라한 버튼을 누르면 현재 사용자 �
 
 해당 마커를 클릭하면 판매점 이름이 나옵니다.
 
-마스크 재고는 공공데이터 자체에서 정확하지도 않아, 기입하지 않았습니다.
+마스크 재고는 공공데이터 자체에서 정확하지도 않아, 기입하지 않았습니다.(귀찮기도해..)
+
+추가하고싶으신 부분은 pullrequest 언제든지 해주세요.
 
 ![구동1](https://user-images.githubusercontent.com/60742556/80295055-4b8ddd80-87aa-11ea-84c3-7b7bef539049.PNG)
 ![구동2](https://user-images.githubusercontent.com/60742556/80295057-50eb2800-87aa-11ea-8249-22dde1f79791.PNG)
