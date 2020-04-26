@@ -12,7 +12,7 @@
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+      /* Optional: Makes the sample page fill the Window. */
       html, body {
         height: 100%;
         margin: 0;
@@ -21,41 +21,43 @@
     </style>	</head>
 	<body> 
 		<div id="map"></div>
-	<% 
-		String json = (String) request.getAttribute("storeInfos");
-		request.getAttribute("storeInfos");
-		
-	%>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
- 		var json = JSON.parse('${storeInfos}');
- 		var jsonArray = JSON.parse(json);
+	
+ 		var json = JSON.parse('${storeInfos}');//json 데이터를 받아오면 구조상 객체로 받아들이기에 파싱해줘야 요소 접근 가능. 
  		
- 		var markerArray = [];
- 		var markerName = [];
- 		var uluru = [];
- 		
- 		for(var i=0; i<jsonArray.length; i++) {
+ 		for(var i=0; i<json.length; i++) {
  			var jsArray = [];
- 			jsArray[0] = jsonArray[i].addr;
- 			jsArray[1] = jsonArray[i].lat;
- 			jsArray[1] = jsonArray[i].lng;
- 			jsArray[1] = jsonArray[i].name;
- 			jsArray[1] = jsonArray[i].code;
- 			jsArray[1] = jsonArray[i].type;
- 			uluru.push({lat: jsArray[i].lat, lng: jsArray[i].lat});
- 			markerArray.push(jsonArray[i].lat, jsonArray[i].lng);
- 			markerName.push(jsonArray[i].name);
+ 			jsArray[0] = json[i].addr;
+ 			jsArray[1] = json[i].lat;
+ 			jsArray[2] = json[i].lng;
+ 			jsArray[3] = json[i].name;
+ 			jsArray[4] = json[i].code;
+ 			jsArray[5] = json[i].type;
  		}
       	var map, infoWindow;
-      	function initMap() {
-    	
+      	
+      	function initMap(){
+      	infoWindow = new google.maps.InfoWindow;
+      	
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 0, lng: 0},
-          zoom: 8});
+          zoom: 12});
+		
+        var marker;
+        for(var i=0; i<json.length; i++){
+        	marker = new google.maps.Marker({
+                position: new google.maps.LatLng(json[i].lat, json[i].lng),
+                map: map
+            });
+        	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infoWindow.setContent(json[i].name);
+                  infoWindow.open(map, marker);
+                }
+            })(marker, i));
+        }
         
-        var marker = new google.maps.Marker({position: markerArray, map: map, title: markerName});
-        infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
               var pos = {
@@ -64,20 +66,19 @@
               };
 
               infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
+              infoWindow.setContent('나의 위치.');
               infoWindow.open(map);
               map.setCenter(pos);
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());
             });
           } else {
-            // Browser doesn't support Geolocation
+            // 브라우저가 구글지도api 지원 안할시.
             handleLocationError(false, infoWindow, map.getCenter());
           }
       }
     </script>
-    <script async defer
-    	src="https://maps.googleapis.com/maps/api/js?key=key&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=API키 입력&callback=initMap">
 	</script>
 	</body> 
 </html>

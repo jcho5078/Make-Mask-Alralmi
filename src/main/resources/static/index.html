@@ -5,31 +5,33 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
+        text-align: center;
       }
+      div{
+      	top: 50%;
+      	left: 45%;
+      	position: absolute;
+      }
+      button {
+	    background-color: gray;
+	    border: none;
+	    color: white;
+	    padding: 15px 30px;
+	    text-align: center;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin: 4px 2px;
+	    cursor: pointer;
+	  }
     </style>
 </head>
-<body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 0, lng: 30},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key="
-    async defer></script>
+<body style="align-content: center;">
+    <div style="align-content: center;">
+    	<button type="submit"><a href="http://localhost:8080/map">지도로 이동</a></button>
+    </div>
 </body>
 </html>

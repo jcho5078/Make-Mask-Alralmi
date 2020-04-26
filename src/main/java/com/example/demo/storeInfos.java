@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public class storeInfos {
+public class storeInfos {//json의 객체로 구성된 요소를 넣기위한 것.
 	private String addr;
 	private double lat;
 	private double lng;
