@@ -15,7 +15,7 @@ JSON데이터는 Jackson을 사용하여 처리하였습니다.
 * Java8
 * Maven
 
-[Postman](http://jojoldu.tistory.com/272) 을 사용하면 공공데이터 같은 큰 데이터 사용을 테스트하는데 편리하더군요.
+[Postman](https://www.postman.com/) 을 사용하면 공공데이터 같은 큰 데이터 사용을 테스트하는데 편리하더군요.
 
 ### 구동 화면
 
